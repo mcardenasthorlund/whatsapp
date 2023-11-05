@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebChat</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    <script src="assets/js/conexion.js"></script>
+    <script src="assets/js/aplicacion.js"></script>
+
+    <!-- Libreria PeerJS-->
+    <script src="https://unpkg.com/peerjs@1.5.1/dist/peerjs.min.js"></script>
+
+    <script>
+        let aplicacion;
+        document.addEventListener('DOMContentLoaded', function () {
+            aplicacion = new Aplicacion();
+        })
+    </script>
+</head>
+
+<body>
+    <main class="contenedor">
+        <!-- Div de inicio -->
+        <div id="div-inicial" class="div-contenedor">
+            <img src="assets/img/logo.png" style="width: 90%;">
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-workspace"></i></span>
+                <input id="idNombre" type="text" class="form-control" placeholder="Nombre de usuario"
+                    aria-label="Username" aria-describedby="basic-addon1" required>
+            </div>
+
+            <button class="btn btn-secondary" id="btnComenzar">Regístrate <i class="bi bi-chevron-double-right"
+                    style="color:white"></i></button>
+
+            <small class="mt-5">Manuel Cárdenas Thorlund
+                <br>
+                &copy; 2023 Todos los derechos reservados
+                <br>
+                <img src="assets/img/logo-manolo.png" alt="" class="img-fluid mt-3" style="max-width: 200px;">
+            </small>
+        </div>
+
+        <!-- Div de chat -->
+        <div id="div-chat" class="div-contenedor" style="display: none;">
+            <div class="row">
+                <div class="col-4">
+                    <img src="assets/img/logo.png" style="width: 100%;">
+                </div>
+                <div class="col-8 text-start">
+                    <div>
+                        <i class="bi bi-emoji-smile"></i>
+                        <span id="nombre-usuario"></span>
+                    </div>
+                    <div>
+                        <i class="bi bi-emoji-sunglasses"></i>
+                        <span id="nombre-usuario-remoto"></span>
+                    </div>
+                </div>
+                
+            </div>
+            <a class="btn btn-secondary btn-sm" data-bs-toggle="offcanvas" href="#logComunicacion" role="button" aria-controls="offcanvasExample">
+                <i class="bi bi-info-circle"></i> Log de comunicación
+              </a>
+
+            <!-- Parte de conectar -->
+            <div id="div-conectar" class="chat conectar">
+                <div class="texto-chat">
+                    <div class="row g-1">
+                        <div class="col-10">
+                            <input type="text" class="form-control" id="id-remoto" placeholder="Id con quien conectar">
+                        </div>
+                        <div class="col-2 text-center">
+                            <button class="btn btn-secondary" id="btnConectar"><i class="bi bi-link"
+                                    style="color:white;font-weight: bold;"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parte del chat -->
+            <div id="div-conversacion" class="chat" style="display: none;">
+
+            </div>
+            <div class="texto-chat">
+                <div class="row g-1">
+                    <div class="col-10">
+                        <input type="text" class="form-control" id="texto" placeholder="Escribir...">
+                    </div>
+                    <div class="col-2 text-center">
+                        <button class="btn btn-secondary" id="btnEnviar"><i class="bi bi-send"
+                                style="color:white;font-weight: bold;"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-bottom: 10px;margin-top: 30px;">
+                <img src="assets/img/logo-manolo.png" alt="" style="max-height: 40px;">
+            </div>
+        </div>
+    </main>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="logComunicacion" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Log de comunicación</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div id="log">
+            
+          </div>
+          
+        </div>
+      </div>
+</body>
+
+</html>

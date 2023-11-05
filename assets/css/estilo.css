@@ -1,0 +1,89 @@
+body {
+    background-color: #28a19d;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    color: white;
+    margin: auto;
+    position: relative;
+    /* overflow: hidden; */
+    height: 100vh;
+    background-color: #28a19d;
+}
+
+.div-contenedor {
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.fila-usuarios {
+    font-weight: bold;
+}
+
+.chat {
+    height: 60%;
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 10px;
+    overflow-y: scroll;
+    background-image: url(../img/fondo-chat2.png);
+    background-size: cover;
+}
+
+.conectar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mensaje {
+    color: #333;
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    background: white;
+    border-radius: 1.125rem 1.125rem 1.125rem 0;
+    min-height: 2.25rem;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    max-width: 66%;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.075), 0rem 1rem 1rem -1rem rgba(0, 0, 0, 0.1);
+}
+
+.derecha {
+    margin: 1rem 1rem 1rem auto;
+    border-radius: 1.125rem 1.125rem 0 1.125rem;
+    background: #333;
+    color: white;
+}
+
+.fecha{
+    display: block;
+    text-align: right;
+    font-size: 0.7em;
+    font-weight: bold;
+    color: #28a19d;
+}
+
+.nombre{
+    display: block;
+    text-align: left;
+    font-size: 0.7em;
+    font-weight: bold;
+    color: #28a19d;
+}
+
+.n-derecha{
+    text-align: right;
+}
